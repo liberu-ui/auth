@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/auth",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "UI auth package",
   "main": "src/bulma/pages/auth/Index.vue",
   "scripts": {
