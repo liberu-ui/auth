@@ -8,7 +8,7 @@
         <password v-model="payload.password"/>
         <remember v-model="payload.remember"
             v-if="!isWebview"/>
-        <template #:footer>
+        <template #footer>
             <router-link class="is-pulled-right"
                 :to="{ name: 'password.email' }">
                 {{ i18n('Forgot password') }}

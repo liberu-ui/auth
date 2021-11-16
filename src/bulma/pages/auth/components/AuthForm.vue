@@ -11,8 +11,7 @@
             <form class="mb-2"
                 @submit.prevent="submit()">
                 <slot/>
-                <submit v-bind="$attrs"
-                    v-on="$listeners"/>
+                <submit v-bind="$attrs"/>
                 <slot name="footer"/>
             </form>
         </div>
@@ -46,7 +45,7 @@ export default {
         return {
             state: this.state,
             errors: this.errors,
-        }
+        };
     },
 };
 </script>
