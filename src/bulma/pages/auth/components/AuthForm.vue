@@ -8,8 +8,7 @@
                         :alt="meta.appName">
                 </figure>
             </div>
-            <form class="mb-2"
-                @submit.prevent="submit()">
+            <form class="mb-2">
                 <slot/>
                 <submit v-bind="$attrs"/>
                 <slot name="footer"/>

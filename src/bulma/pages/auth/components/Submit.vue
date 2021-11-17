@@ -21,9 +21,9 @@ library.add(faLock, faUser);
 export default {
     name: 'Submit',
 
-    inject: ['errors', 'i18n', 'route', 'state', 'toastr'],
-
     components: { Fa },
+
+    inject: ['errors', 'i18n', 'route', 'state', 'toastr'],
 
     props: {
         action: {
@@ -43,6 +43,8 @@ export default {
             required: true,
         },
     },
+
+    emits: ['submitting', 'success'],
 
     data: () => ({
         loading: false,
