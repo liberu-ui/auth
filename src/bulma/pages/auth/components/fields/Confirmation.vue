@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faExclamationTriangle, faLock } from '@fortawesome/free-solid-svg-icons';
 import { focus } from '@enso-ui/directives';
@@ -42,9 +43,9 @@ export default {
 
     directives: { focus },
 
-    inject: ['errors', 'i18n', 'state'],
+    components: { Fa, RevealPassword },
 
-    components: { RevealPassword },
+    inject: ['errors', 'i18n', 'state'],
 
     props: {
         match: {
@@ -57,16 +58,16 @@ export default {
         },
     },
 
-    computed: {
-        successful() {
-            return this.state.successful;
-        },
-    },
-
     data: () => ({
         meta: {
             content: 'password',
         },
     }),
+
+    computed: {
+        successful() {
+            return this.state.successful;
+        },
+    },
 };
 </script>

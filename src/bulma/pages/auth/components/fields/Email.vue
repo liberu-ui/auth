@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faExclamationTriangle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { focus } from '@enso-ui/directives';
@@ -39,6 +40,8 @@ export default {
     name: 'Email',
 
     directives: { focus },
+
+    components: { Fa },
 
     inject: ['errors', 'i18n', 'state'],
 

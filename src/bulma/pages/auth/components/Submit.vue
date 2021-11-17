@@ -12,6 +12,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,6 +22,8 @@ export default {
     name: 'Submit',
 
     inject: ['errors', 'i18n', 'route', 'state', 'toastr'],
+
+    components: { Fa },
 
     props: {
         action: {
