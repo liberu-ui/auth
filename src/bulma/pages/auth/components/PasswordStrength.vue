@@ -38,7 +38,7 @@ export default {
                 : 6;
         },
         x(i) {
-            const x = 2.5 + (i-1) * 15 + (i-1) * 5;
+            const x = 2.5 + (i - 1) * 15 + (i - 1) * 5;
             return `${x}%`;
         },
     },
