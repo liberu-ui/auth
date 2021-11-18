@@ -1,14 +1,14 @@
 <template>
     <div class="field">
         <div class="control has-icons-left has-icons-right">
-            <input :value="value"
+            <input :value="modelValue"
                 v-focus
                 class="input"
                 type="email"
                 :class="{ 'is-danger': errors.has('email'), 'is-success': successful }"
                 :placeholder="i18n('Email')"
                 autocomplete="email"
-                @input="$emit('input', $event.target.value); errors.clear('email')">
+                @input="$emit('update:modelValue', $event.target.value); errors.clear('email')">
             <span class="icon is-small is-left">
                 <fa icon="envelope"/>
             </span>
@@ -46,11 +46,13 @@ export default {
     inject: ['errors', 'i18n', 'state'],
 
     props: {
-        value: {
+        modelValue: {
             type: String,
             required: true,
         },
     },
+
+    emits: ['change', 'update:modelValue'],
 
     computed: {
         successful() {

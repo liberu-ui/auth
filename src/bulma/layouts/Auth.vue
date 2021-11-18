@@ -1,5 +1,5 @@
 <template>
-    <core-auth #default="{ guestState }">
+    <core-auth v-slot="{ guestState }">
         <section class="hero is-fullheight is-primary is-bold">
             <div class="hero-body">
                 <div class="container">
