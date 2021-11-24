@@ -1,13 +1,13 @@
 <template>
-    <core-auth v-slot="{ guestState }">
-        <section class="hero is-fullheight is-primary is-bold">
-            <div class="hero-body">
-                <div class="container">
+    <section class="hero is-fullheight is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <core-auth v-slot="{ guestState }">
                     <router v-if="guestState"/>
-                </div>
+                </core-auth>
             </div>
-        </section>
-    </core-auth>
+        </div>
+    </section>
 </template>
 
 <script>
