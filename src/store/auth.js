@@ -1,3 +1,4 @@
+import axios from 'axios';
 import router from '@enso-ui/ui/src/core/services/router';
 
 export const state = {

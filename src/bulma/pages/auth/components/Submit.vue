@@ -23,7 +23,7 @@ export default {
 
     components: { Fa },
 
-    inject: ['errors', 'i18n', 'route', 'state', 'toastr'],
+    inject: ['errors', 'http', 'i18n', 'route', 'state', 'toastr'],
 
     props: {
         action: {
@@ -65,7 +65,7 @@ export default {
             this.state.successful = false;
             this.$emit('submitting');
 
-            axios.post(this.route(this.endpoint), this.payload, this.config)
+            this.http.post(this.route(this.endpoint), this.payload, this.config)
                 .then(({ data }) => {
                     this.state.successful = true;
                     this.$emit('success', data);

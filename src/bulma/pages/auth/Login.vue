@@ -52,13 +52,9 @@ export default {
     methods: {
         ...mapMutations('auth', ['login']),
         ...mapMutations('layout', ['home']),
-        ...mapMutations(['setShowQuote', 'setCsrfToken']),
-        init(data) {
+        ...mapMutations(['setShowQuote']),
+        init() {
             this.setShowQuote(this.meta.showQuote);
-
-            if (data.csrfToken) {
-                this.setCsrfToken(data.csrfToken);
-            }
 
             setTimeout(() => {
                 this.login();
