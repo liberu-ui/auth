@@ -30,6 +30,13 @@ export default {
 
     inject: ['routerErrorHandler'],
 
+    provide() {
+        return {
+            state: this.state,
+            errors: this.errors,
+        };
+    },
+
     inheritAttrs: false,
 
     data: () => ({
@@ -41,13 +48,6 @@ export default {
 
     computed: {
         ...mapState(['meta']),
-    },
-
-    provide() {
-        return {
-            state: this.state,
-            errors: this.errors,
-        };
     },
 };
 </script>

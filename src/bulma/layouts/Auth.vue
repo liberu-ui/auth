@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import CoreAuth from '../../core/layouts/Auth.vue';
 import Router from '@enso-ui/ui/src/bulma/pages/Router.vue';
+import CoreAuth from '../../core/layouts/Auth.vue';
 
 export default {
     name: 'Auth',

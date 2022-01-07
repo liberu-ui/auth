@@ -30,11 +30,13 @@ import Confirmation from '../components/fields/Confirmation.vue';
 export default {
     name: 'Reset',
 
-    components: { AuthForm, Email, PasswordStrength, Password, Confirmation },
+    components: {
+        AuthForm, Email, PasswordStrength, Password, Confirmation,
+    },
 
     inject: ['routerErrorHandler'],
 
-    data: (v) => ({
+    data: v => ({
         payload: {
             email: '',
             password: '',
