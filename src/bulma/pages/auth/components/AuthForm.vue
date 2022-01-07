@@ -1,5 +1,6 @@
 <template>
-    <div class="login">
+    <div class="login"
+        :class="$attrs.class">
         <div class="box p-3">
             <div class="logo mb-3 is-flex">
                 <figure class="image is-48x48  is-clickable is-flex"
@@ -28,6 +29,8 @@ export default {
     components: { Submit },
 
     inject: ['routerErrorHandler'],
+
+    inheritAttrs: false,
 
     data: () => ({
         errors: new Errors(),
