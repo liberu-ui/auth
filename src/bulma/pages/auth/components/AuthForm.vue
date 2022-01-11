@@ -1,5 +1,6 @@
 <template>
-    <div class="login">
+    <div class="login"
+        :class="$attrs.class">
         <div class="box p-3">
             <div class="logo mb-3 is-flex">
                 <figure class="image is-48x48  is-clickable is-flex"
@@ -8,11 +9,9 @@
                         :alt="meta.appName">
                 </figure>
             </div>
-            <form class="mb-2"
-                @submit.prevent="submit()">
+            <form class="mb-2">
                 <slot/>
-                <submit v-bind="$attrs"
-                    v-on="$listeners"/>
+                <submit v-bind="$attrs"/>
                 <slot name="footer"/>
             </form>
         </div>
@@ -31,6 +30,15 @@ export default {
 
     inject: ['routerErrorHandler'],
 
+    provide() {
+        return {
+            state: this.state,
+            errors: this.errors,
+        };
+    },
+
+    inheritAttrs: false,
+
     data: () => ({
         errors: new Errors(),
         state: {
@@ -40,13 +48,6 @@ export default {
 
     computed: {
         ...mapState(['meta']),
-    },
-
-    provide() {
-        return {
-            state: this.state,
-            errors: this.errors,
-        }
     },
 };
 </script>

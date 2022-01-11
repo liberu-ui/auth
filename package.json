@@ -1,8 +1,8 @@
 {
   "name": "@enso-ui/auth",
-  "version": "1.0.5",
+  "version": "2.0.13",
   "description": "UI auth package",
-  "main": "src/bulma/pages/auth/Index.vue",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,28 +21,26 @@
   },
   "homepage": "https://github.com/enso-ui/auth#readme",
   "dependencies": {
-    "@enso-ui/directives": "^1.0",
-    "@enso-ui/forms": "^2.0",
-    "@enso-ui/laravel-validation": "^1.0",
-    "@enso-ui/ui": "^4.0",
+    "@enso-ui/directives": "^2.0",
+    "@enso-ui/forms": "^3.0",
+    "@enso-ui/laravel-validation": "^2.0",
+    "@enso-ui/ui": "^5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
-    "@fortawesome/free-solid-svg-icons": "^5.2.0",
-    "v-tooltip": "^2.0.0-rc.32",
-    "vue": "^2.5.16",
-    "vuex": "^3.1.0",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/vue-fontawesome": "3.0.0-5",
+    "vue": "^3.0",
+    "vuex": "^4.0.0",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@vue/cli-plugin-babel": "^4.0.5",
-    "@vue/cli-plugin-eslint": "^4.0.5",
-    "@vue/cli-service": "^4.0.5",
+    "@vue/cli-plugin-babel": "5.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "5.0.0-beta.6",
     "@vue/eslint-config-airbnb": "^5.0.0",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.1",
     "cross-env": "^6.0.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-vue": "^6.0.0"
+    "eslint-plugin-vue": "^8.0.3"
   }
 }

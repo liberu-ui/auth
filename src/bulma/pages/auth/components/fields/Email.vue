@@ -1,14 +1,14 @@
 <template>
     <div class="field">
         <div class="control has-icons-left has-icons-right">
-            <input :value="value"
+            <input :value="modelValue"
                 v-focus
                 class="input"
                 type="email"
                 :class="{ 'is-danger': errors.has('email'), 'is-success': successful }"
                 :placeholder="i18n('Email')"
                 autocomplete="email"
-                @input="$emit('input', $event.target.value); errors.clear('email')">
+                @input="$emit('update:modelValue', $event.target.value); errors.clear('email')">
             <span class="icon is-small is-left">
                 <fa icon="envelope"/>
             </span>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faExclamationTriangle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { focus } from '@enso-ui/directives';
@@ -40,14 +41,18 @@ export default {
 
     directives: { focus },
 
+    components: { Fa },
+
     inject: ['errors', 'i18n', 'state'],
 
     props: {
-        value: {
+        modelValue: {
             type: String,
             required: true,
         },
     },
+
+    emits: ['change', 'update:modelValue'],
 
     computed: {
         successful() {

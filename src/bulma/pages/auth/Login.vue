@@ -8,7 +8,7 @@
         <password v-model="payload.password"/>
         <remember v-model="payload.remember"
             v-if="!isWebview"/>
-        <template v-slot:footer>
+        <template #footer>
             <router-link class="is-pulled-right"
                 :to="{ name: 'password.email' }">
                 {{ i18n('Forgot password') }}
@@ -29,9 +29,11 @@ import Remember from './components/fields/Remember.vue';
 export default {
     name: 'Login',
 
-    inject: ['i18n', 'route'],
+    components: {
+        AuthForm, Email, Password, Remember,
+    },
 
-    components: { AuthForm, Email, Password, Remember },
+    inject: ['i18n', 'route'],
 
     data: () => ({
         errors: new Errors(),
@@ -39,7 +41,7 @@ export default {
             email: '',
             password: '',
             remember: false,
-        }
+        },
     }),
 
     computed: {
@@ -50,13 +52,9 @@ export default {
     methods: {
         ...mapMutations('auth', ['login']),
         ...mapMutations('layout', ['home']),
-        ...mapMutations(['setShowQuote', 'setCsrfToken']),
-        init(data) {
+        ...mapMutations(['setShowQuote']),
+        init() {
             this.setShowQuote(this.meta.showQuote);
-
-            if (data.csrfToken) {
-                this.setCsrfToken(data.csrfToken);
-            }
 
             setTimeout(() => {
                 this.login();

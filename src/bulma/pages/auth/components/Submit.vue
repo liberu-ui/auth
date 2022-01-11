@@ -12,6 +12,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,7 +21,9 @@ library.add(faLock, faUser);
 export default {
     name: 'Submit',
 
-    inject: ['errors', 'i18n', 'route', 'state', 'toastr'],
+    components: { Fa },
+
+    inject: ['errors', 'http', 'i18n', 'route', 'state', 'toastr'],
 
     props: {
         action: {
@@ -41,6 +44,8 @@ export default {
         },
     },
 
+    emits: ['submitting', 'success'],
+
     data: () => ({
         loading: false,
     }),
@@ -60,7 +65,7 @@ export default {
             this.state.successful = false;
             this.$emit('submitting');
 
-            axios.post(this.route(this.endpoint), this.payload, this.config)
+            this.http.post(this.route(this.endpoint), this.payload, this.config)
                 .then(({ data }) => {
                     this.state.successful = true;
                     this.$emit('success', data);

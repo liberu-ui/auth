@@ -1,18 +1,18 @@
 <template>
-    <core-auth v-slot:default="{ guestState }">
-        <section class="hero is-fullheight is-primary is-bold">
-            <div class="hero-body">
-                <div class="container">
+    <section class="hero is-fullheight is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <core-auth v-slot="{ guestState }">
                     <router v-if="guestState"/>
-                </div>
+                </core-auth>
             </div>
-        </section>
-    </core-auth>
+        </div>
+    </section>
 </template>
 
 <script>
-import CoreAuth from '../../core/layouts/Auth.vue';
 import Router from '@enso-ui/ui/src/bulma/pages/Router.vue';
+import CoreAuth from '../../core/layouts/Auth.vue';
 
 export default {
     name: 'Auth',

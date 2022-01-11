@@ -1,19 +1,19 @@
 <template>
     <div class="field">
         <div class="control has-icons-left has-icons-right">
-            <input :value="value"
+            <input :value="modelValue"
                 class="input"
                 :type="meta.content"
                 :class="{ 'is-danger': errors.has('password'), 'is-success': successful }"
                 :placeholder="i18n('Password')"
                 :autocomplete="autocomplete"
-                @input="$emit('input', $event.target.value); errors.clear('password')">
+                @input="$emit('update:modelValue', $event.target.value); errors.clear('password')">
             <span class="icon is-small is-left">
                 <fa icon="lock"/>
             </span>
             <reveal-password :meta="meta"
                 :class="{ 'is-spaced': successful || errors.has('password') }"
-                v-if="value && !successful"/>
+                v-if="modelValue && !successful"/>
             <span v-if="successful"
                 class="icon is-small is-right has-text-success">
                 <fa icon="check"/>
@@ -23,8 +23,8 @@
                 <fa icon="exclamation-triangle"/>
             </span>
             <slot name="password-strength"
-                :password="value"
-                :has-password="value.length > 0"/>
+                :password="modelValue"
+                :has-password="modelValue.length > 0"/>
         </div>
         <p class="has-text-danger is-size-7"
             v-if="errors.has('password')">
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { focus } from '@enso-ui/directives';
@@ -46,31 +47,33 @@ export default {
 
     directives: { focus },
 
-    inject: ['errors', 'i18n', 'state'],
+    components: { Fa, RevealPassword },
 
-    components: { RevealPassword },
+    inject: ['errors', 'i18n', 'state'],
 
     props: {
         autocomplete: {
             type: String,
             default: 'current-password',
         },
-        value: {
+        modelValue: {
             type: String,
             required: true,
         },
     },
 
-    computed: {
-        successful() {
-            return this.state.successful;
-        },
-    },
+    emits: ['update:modelValue'],
 
     data: () => ({
         meta: {
             content: 'password',
         },
     }),
+
+    computed: {
+        successful() {
+            return this.state.successful;
+        },
+    },
 };
 </script>

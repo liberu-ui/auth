@@ -2,9 +2,9 @@
     <div class="field">
         <div class="control">
             <label class="checkbox">
-            <input :value="value"
-                @change="$emit('input', !value)"
-                :checked="value"
+            <input :value="modelValue"
+                @change="$emit('update:modelValue', !modelValue)"
+                :checked="modelValue"
                 type="checkbox">
                 {{ i18n('Remember me') }}
             </label>
@@ -19,10 +19,12 @@ export default {
     inject: ['i18n'],
 
     props: {
-        value: {
+        modelValue: {
             type: Boolean,
             required: true,
         },
     },
+
+    emits: ['update:modelValue'],
 };
 </script>

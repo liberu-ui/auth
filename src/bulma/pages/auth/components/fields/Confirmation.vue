@@ -1,18 +1,19 @@
 <template>
     <div class="field">
         <div class="control has-icons-left has-icons-right">
-            <input :value="value"
+            <input :value="modelValue"
                 class="input"
                 :type="meta.content"
                 :class="{ 'is-danger': errors.has('password'), 'is-success': successful }"
                 :placeholder="i18n('Repeat Password')"
-                @input="$emit('input', $event.target.value); errors.clear('password')">
+                @input="$emit('update:modelValue', $event.target.modelValue);
+                    errors.clear('password')">
             <span class="icon is-small is-left">
                 <fa icon="lock"/>
             </span>
             <reveal-password :meta="meta"
                 :class="{ 'mr-5': match || successful || errors.has('password')}"
-                v-if="value && !successful"/>
+                v-if="modelValue && !successful"/>
             <span v-if="errors.has('password')"
                 class="icon is-small is-right has-text-danger">
                 <fa icon="exclamation-triangle"/>
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faExclamationTriangle, faLock } from '@fortawesome/free-solid-svg-icons';
 import { focus } from '@enso-ui/directives';
@@ -42,31 +44,33 @@ export default {
 
     directives: { focus },
 
-    inject: ['errors', 'i18n', 'state'],
+    components: { Fa, RevealPassword },
 
-    components: { RevealPassword },
+    inject: ['errors', 'i18n', 'state'],
 
     props: {
         match: {
             type: Boolean,
             required: true,
         },
-        value: {
+        modelValue: {
             type: String,
             required: true,
         },
     },
 
-    computed: {
-        successful() {
-            return this.state.successful;
-        },
-    },
+    emits: ['update:modelValue'],
 
     data: () => ({
         meta: {
             content: 'password',
         },
     }),
+
+    computed: {
+        successful() {
+            return this.state.successful;
+        },
+    },
 };
 </script>
