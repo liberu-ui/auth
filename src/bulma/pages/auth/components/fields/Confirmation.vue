@@ -6,7 +6,7 @@
                 :type="meta.content"
                 :class="{ 'is-danger': errors.has('password'), 'is-success': successful }"
                 :placeholder="i18n('Repeat Password')"
-                @input="$emit('update:modelValue', $event.target.modelValue);
+                @input="$emit('update:modelValue', $event.target.value);
                     errors.clear('password')">
             <span class="icon is-small is-left">
                 <fa icon="lock"/>
