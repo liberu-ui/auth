@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Router from '@enso-ui/ui/src/bulma/pages/Router.vue';
+import Router from '@liberu-ui/ui/src/bulma/pages/Router.vue';
 import CoreAuth from '../../core/layouts/Auth.vue';
 
 export default {

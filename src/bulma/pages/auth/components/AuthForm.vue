@@ -20,7 +20,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import Errors from '@enso-ui/laravel-validation';
+import Errors from '@liberu-ui/laravel-validation';
 import Submit from './Submit.vue';
 
 export default {

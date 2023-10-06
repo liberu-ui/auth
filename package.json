@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enso-ui/auth.git"
+    "url": "git+https://github.com/liberu-ui/auth.git"
   },
   "keywords": [
     "auth",
@@ -17,9 +17,9 @@
   "author": "Adrian Ocneanu <aocneanu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/enso-ui/auth/issues"
+    "url": "https://github.com/liberu-ui/auth/issues"
   },
-  "homepage": "https://github.com/enso-ui/auth#readme",
+  "homepage": "https://github.com/liberu-ui/auth#readme",
   "dependencies": {
     "@liberu-ui/directives": "^2.0",
     "@liberu-ui/forms": "^3.0",
