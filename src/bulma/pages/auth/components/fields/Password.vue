@@ -37,8 +37,8 @@
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import { focus } from '@enso-ui/directives';
-import RevealPassword from '@enso-ui/forms/src/bulma/parts/RevealPassword.vue';
+import { focus } from '@liberu-ui/directives';
+import RevealPassword from '@liberu-ui/forms/src/bulma/parts/RevealPassword.vue';
 
 library.add(faExclamationTriangle);
 

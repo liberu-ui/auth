@@ -32,7 +32,7 @@
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faExclamationTriangle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { focus } from '@enso-ui/directives';
+import { focus } from '@liberu-ui/directives';
 
 library.add(faCheck, faExclamationTriangle, faEnvelope);
 
