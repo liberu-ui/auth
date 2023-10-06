@@ -1,5 +1,5 @@
 import axios from 'axios';
-import router from '@enso-ui/ui/src/core/services/router';
+import router from '@liberu-ui/ui/src/core/services/router';
 
 export const state = {
     isAuth: localStorage.getItem('isAuth') === 'true',

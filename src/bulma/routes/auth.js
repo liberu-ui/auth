@@ -1,4 +1,4 @@
-import store from '@enso-ui/ui/src/core/services/store';
+import store from '@liberu-ui/ui/src/core/services/store';
 
 const Login = () => import('../pages/auth/Login.vue');
 const Email = () => import('../pages/auth/password/EmailResetLink.vue');

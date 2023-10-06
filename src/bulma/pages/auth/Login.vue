@@ -20,7 +20,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex';
-import Errors from '@enso-ui/laravel-validation';
+import Errors from '@liberu-ui/laravel-validation';
 import AuthForm from './components/AuthForm.vue';
 import Email from './components/fields/Email.vue';
 import Password from './components/fields/Password.vue';
